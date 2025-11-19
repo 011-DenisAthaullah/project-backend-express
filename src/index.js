@@ -37,8 +37,11 @@ app.post("/users", (req, res) => {
     res.status(201).json(newUser);
 });
 
-app.put("/users/:id", (req, res) => {
-
+app.delete("/users/:id", (req, res) => {
+    const {id} = req.params;
+    const deleteUser = dataDummy.filter((item) => item.id !== id)
+    console.log(deleteUser);
+    res.status(200).json({msg:"user berhasil dihapus"})
 })
 
 
